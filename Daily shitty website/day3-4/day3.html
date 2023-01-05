@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="day3.css">
+    <title>ANIMATIONS!</title>
+</head>
+<body>
+    <div class="tab-bar">
+        <div class="tab-button active" data-page="home">Home</div>
+        <div class="tab-button" data-page="about">About</div>
+        <div class="tab-button" data-page="projects">Projects</div>
+        <div class="contact-info">
+            <p>Email:</p>
+            <p>LinkedIn:</p>
+            <p>GitHub:</p>
+        </div>
+      </div>
+      <div class="page home active">Day 4, progress.</div>
+      <div class="page about"></div>
+      <div class="page projects"></div>
+    <script>
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const pages = document.querySelectorAll('.page');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove the "active" class from all tab buttons
+          tabButtons.forEach(button => {
+            button.classList.remove('active');
+          });
+          // Add the "active" class to the clicked tab button
+          button.classList.add('active');
+          // Get the page to show from the data attribute
+          const pageId = button.getAttribute('data-page');
+          // Remove the "active" class from all pages
+          pages.forEach(page => {
+            page.classList.remove('active');
+          });
+          // Add the "active" class to the correct page
+          document.querySelector(`[data-page="${pageId}"]`).classList.add(' active');
+        });
+      });
+    </script>
+  </body>
+</html>
